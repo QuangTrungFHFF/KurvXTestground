@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KurvX_testground" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="KurvX_testground" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,51 +67,106 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Scanning View Controller-->
         <scene sceneID="opK-Sk-5WO">
             <objects>
-                <viewController id="qib-iw-e6r" sceneMemberID="viewController">
+                <viewController id="qib-iw-e6r" customClass="ScanningViewController" customModule="KurvX_testground" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="89G-vE-9Ye">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b8F-Cl-g7y">
-                                <rect key="frame" x="20" y="194" width="374" height="668"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="device_cell" id="DCN-uv-J8V">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DCN-uv-J8V" id="efx-rg-TMt">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVA-bg-VU6">
-                                <rect key="frame" x="80" y="80" width="57" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Scan">
-                                    <color key="baseForegroundColor" red="0.45882352939999999" green="0.20392156859999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="baseBackgroundColor" red="1" green="0.92156862750000001" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keG-Lk-6OF"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="kbt-WM-xgK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="etr-Nm-SIK">
+                                        <rect key="frame" x="8" y="8" width="398" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVA-bg-VU6">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="PVO-CU-A53"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Scan">
+                                                    <color key="baseForegroundColor" red="0.45882352939999999" green="0.20392156859999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="baseBackgroundColor" red="1" green="0.92156862750000001" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keG-Lk-6OF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGE-6s-dYn">
+                                                <rect key="frame" x="207" y="0.0" width="191" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="GpU-Bd-r9B"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Cancel">
+                                                    <color key="baseForegroundColor" red="0.45882352939999999" green="0.20392156859999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="baseBackgroundColor" red="1" green="0.92156862750000001" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOu-Yv-5Sw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b8F-Cl-g7y" userLabel="ScannedPeripheralsTableView">
+                                        <rect key="frame" x="8" y="63" width="398" height="747"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="KurvxItemCell" textLabel="OsX-X2-OBU" detailTextLabel="vv9-76-vCL" imageView="NsH-l5-LuB" style="IBUITableViewCellStyleSubtitle" id="DCN-uv-J8V">
+                                                <rect key="frame" x="0.0" y="44.5" width="398" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DCN-uv-J8V" id="efx-rg-TMt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="369.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OsX-X2-OBU">
+                                                            <rect key="frame" x="59" y="6" width="25" height="14.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vv9-76-vCL">
+                                                            <rect key="frame" x="59" y="22.5" width="40.5" height="13.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="ic_kurvx_gray_24pt" id="NsH-l5-LuB">
+                                                            <rect key="frame" x="20" y="9.5" width="24" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="b8F-Cl-g7y" secondAttribute="trailing" constant="8" id="1wW-yj-D0d"/>
+                                    <constraint firstAttribute="bottom" secondItem="b8F-Cl-g7y" secondAttribute="bottom" constant="8" id="DZ6-3r-eYr"/>
+                                    <constraint firstItem="b8F-Cl-g7y" firstAttribute="leading" secondItem="kbt-WM-xgK" secondAttribute="leading" constant="8" id="InL-up-iCy"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vea-jO-48J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b8F-Cl-g7y" firstAttribute="bottom" secondItem="vea-jO-48J" secondAttribute="bottom" id="Lxp-FH-JyE"/>
-                            <constraint firstItem="vea-jO-48J" firstAttribute="trailing" secondItem="b8F-Cl-g7y" secondAttribute="trailing" constant="20" id="fQs-Dk-Sjz"/>
-                            <constraint firstItem="b8F-Cl-g7y" firstAttribute="leading" secondItem="vea-jO-48J" secondAttribute="leading" constant="20" id="spn-T1-vCB"/>
-                            <constraint firstItem="b8F-Cl-g7y" firstAttribute="top" secondItem="vea-jO-48J" secondAttribute="top" constant="150" id="v2d-le-pXG"/>
+                            <constraint firstItem="kbt-WM-xgK" firstAttribute="trailing" secondItem="vea-jO-48J" secondAttribute="trailing" id="Dvf-of-5Uf"/>
+                            <constraint firstItem="kbt-WM-xgK" firstAttribute="top" secondItem="vea-jO-48J" secondAttribute="top" id="N2g-Wj-Oow"/>
+                            <constraint firstItem="vea-jO-48J" firstAttribute="bottom" secondItem="kbt-WM-xgK" secondAttribute="bottom" id="dIG-9i-uf9"/>
+                            <constraint firstItem="kbt-WM-xgK" firstAttribute="leading" secondItem="vea-jO-48J" secondAttribute="leading" id="irO-uB-ioU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rEf-P0-BWn"/>
+                    <connections>
+                        <outlet property="scannedPeripheralsTableView" destination="b8F-Cl-g7y" id="gLD-fY-jMg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MI5-gl-Ecp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,6 +174,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_kurvx_gray_24pt" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
