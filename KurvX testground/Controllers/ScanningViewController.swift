@@ -13,11 +13,15 @@ class ScanningViewController: UIViewController {
                  "KurvX 2",
                  "KurvX 3"]
     
+    private var kurvxManager: KurvxBLEPeripheralManager?
+    
 
     @IBOutlet weak var scannedPeripheralsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        kurvxManager = KurvxBLEPeripheralManager.shared
         
         scannedPeripheralsTableView.delegate = self
         scannedPeripheralsTableView.dataSource = self
@@ -25,18 +29,12 @@ class ScanningViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func scanButtonPressed(_ sender: UIButton) {
+        kurvxManager?.discoverDevices()
+        print("You tapped scan!")
     }
-    */
+    
+    
 
 }
 

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C3438BB527E0986600024910 /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3438BB427E0986600024910 /* ScanningViewController.swift */; };
+		C3438BB827E0F61400024910 /* KurvxBLEPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3438BB727E0F61400024910 /* KurvxBLEPeripheralManager.swift */; };
+		C3438BBB27E0FD3100024910 /* KurvxUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3438BBA27E0FD3100024910 /* KurvxUUIDs.swift */; };
+		C394DF5B27E3771900E60DCE /* KurvxDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394DF5A27E3771900E60DCE /* KurvxDatabaseManager.swift */; };
+		C394DF5D27E3797C00E60DCE /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394DF5C27E3797C00E60DCE /* DatabaseHelper.swift */; };
+		C394DF6027E3854000E60DCE /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394DF5F27E3854000E60DCE /* StorageUtils.swift */; };
+		C394DF6327E3978A00E60DCE /* KurvxDatabaseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394DF6227E3978A00E60DCE /* KurvxDatabaseTable.swift */; };
 		C3B39F8B27CD0CE20080C0B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B39F8A27CD0CE20080C0B1 /* AppDelegate.swift */; };
 		C3B39F8D27CD0CE20080C0B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B39F8C27CD0CE20080C0B1 /* SceneDelegate.swift */; };
 		C3B39F8F27CD0CE20080C0B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B39F8E27CD0CE20080C0B1 /* MainViewController.swift */; };
@@ -38,6 +44,12 @@
 
 /* Begin PBXFileReference section */
 		C3438BB427E0986600024910 /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
+		C3438BB727E0F61400024910 /* KurvxBLEPeripheralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurvxBLEPeripheralManager.swift; sourceTree = "<group>"; };
+		C3438BBA27E0FD3100024910 /* KurvxUUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurvxUUIDs.swift; sourceTree = "<group>"; };
+		C394DF5A27E3771900E60DCE /* KurvxDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurvxDatabaseManager.swift; sourceTree = "<group>"; };
+		C394DF5C27E3797C00E60DCE /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		C394DF5F27E3854000E60DCE /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
+		C394DF6227E3978A00E60DCE /* KurvxDatabaseTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurvxDatabaseTable.swift; sourceTree = "<group>"; };
 		C3B39F8727CD0CE20080C0B1 /* KurvX testground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KurvX testground.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B39F8A27CD0CE20080C0B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B39F8C27CD0CE20080C0B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +108,40 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		C3438BB627E0F5E200024910 /* KurvxManager */ = {
+			isa = PBXGroup;
+			children = (
+				C3438BB727E0F61400024910 /* KurvxBLEPeripheralManager.swift */,
+				C394DF5A27E3771900E60DCE /* KurvxDatabaseManager.swift */,
+			);
+			path = KurvxManager;
+			sourceTree = "<group>";
+		};
+		C3438BB927E0FD0E00024910 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C3438BBA27E0FD3100024910 /* KurvxUUIDs.swift */,
+				C394DF5C27E3797C00E60DCE /* DatabaseHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C394DF5E27E3852F00E60DCE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C394DF5F27E3854000E60DCE /* StorageUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C394DF6127E3975800E60DCE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C394DF6227E3978A00E60DCE /* KurvxDatabaseTable.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		C3B39F7E27CD0CE20080C0B1 = {
 			isa = PBXGroup;
 			children = (
@@ -119,12 +165,16 @@
 		C3B39F8927CD0CE20080C0B1 /* KurvX testground */ = {
 			isa = PBXGroup;
 			children = (
-				C3B39F8A27CD0CE20080C0B1 /* AppDelegate.swift */,
-				C3B39F8C27CD0CE20080C0B1 /* SceneDelegate.swift */,
+				C394DF6127E3975800E60DCE /* Database */,
+				C394DF5E27E3852F00E60DCE /* Utils */,
+				C3438BB927E0FD0E00024910 /* Helper */,
+				C3438BB627E0F5E200024910 /* KurvxManager */,
 				C3438BB327E0979B00024910 /* Controllers */,
-				C3B39F9327CD0CE30080C0B1 /* Assets.xcassets */,
 				C3438BB227E0977900024910 /* View */,
 				C3B39F9827CD0CE30080C0B1 /* Info.plist */,
+				C3B39F9327CD0CE30080C0B1 /* Assets.xcassets */,
+				C3B39F8C27CD0CE20080C0B1 /* SceneDelegate.swift */,
+				C3B39F8A27CD0CE20080C0B1 /* AppDelegate.swift */,
 			);
 			path = "KurvX testground";
 			sourceTree = "<group>";
@@ -280,7 +330,13 @@
 				C3B39F8F27CD0CE20080C0B1 /* MainViewController.swift in Sources */,
 				C3B39F8B27CD0CE20080C0B1 /* AppDelegate.swift in Sources */,
 				C3B39F8D27CD0CE20080C0B1 /* SceneDelegate.swift in Sources */,
+				C394DF6027E3854000E60DCE /* StorageUtils.swift in Sources */,
 				C3438BB527E0986600024910 /* ScanningViewController.swift in Sources */,
+				C394DF5D27E3797C00E60DCE /* DatabaseHelper.swift in Sources */,
+				C394DF6327E3978A00E60DCE /* KurvxDatabaseTable.swift in Sources */,
+				C394DF5B27E3771900E60DCE /* KurvxDatabaseManager.swift in Sources */,
+				C3438BB827E0F61400024910 /* KurvxBLEPeripheralManager.swift in Sources */,
+				C3438BBB27E0FD3100024910 /* KurvxUUIDs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

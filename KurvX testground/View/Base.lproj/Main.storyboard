@@ -93,6 +93,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keG-Lk-6OF"/>
+                                                    <action selector="scanButtonPressed:" destination="qib-iw-e6r" eventType="touchUpInside" id="24D-W2-8EI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGE-6s-dYn">
