@@ -96,13 +96,13 @@
                                                     <action selector="scanButtonPressed:" destination="qib-iw-e6r" eventType="touchUpInside" id="24D-W2-8EI"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGE-6s-dYn">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGE-6s-dYn">
                                                 <rect key="frame" x="207" y="0.0" width="191" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="GpU-Bd-r9B"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" title="Cancel">
+                                                <buttonConfiguration key="configuration" style="gray" title="Stop">
                                                     <color key="baseForegroundColor" red="0.45882352939999999" green="0.20392156859999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="baseBackgroundColor" red="1" green="0.92156862750000001" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
@@ -167,6 +167,8 @@
                     <navigationItem key="navigationItem" id="rEf-P0-BWn"/>
                     <connections>
                         <outlet property="scannedPeripheralsTableView" destination="b8F-Cl-g7y" id="gLD-fY-jMg"/>
+                        <outlet property="startScanButton" destination="iVA-bg-VU6" id="aOQ-Nr-dPm"/>
+                        <outlet property="stopScanButton" destination="gGE-6s-dYn" id="x3Q-cn-i3S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MI5-gl-Ecp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

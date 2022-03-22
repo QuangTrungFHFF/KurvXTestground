@@ -13,8 +13,8 @@ public class KurvxBLEPeripheralManager: NSObject, CBCentralManagerDelegate{
     public static let shared = KurvxBLEPeripheralManager()
     public private(set) var centralManager : CBCentralManager?
     
-    private var discoveredKurvxs = [(peripheral: CBPeripheral, serialNumber: String, modelNumber: String, withRSSI: Int64)]()
-    
+    var kurvxDiscoveringDelegate: KurvxDiscoveringDelegate!
+          
     private override init(){
         super.init()
         
@@ -54,19 +54,19 @@ public class KurvxBLEPeripheralManager: NSObject, CBCentralManagerDelegate{
         centralManager!.scanForPeripherals(withServices: kurvxBaseService, options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: false)])
     }
     
-        public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+    //BLE device discovering delegate
+    public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         var modelNumber : String = NSLocalizedString("n/a", comment: "n/a")
         var serialNumber : String = NSLocalizedString("n/a", comment: "n/a")
         if(onPeripheralChecking(didDiscover: peripheral, advertisementData: advertisementData, modelNumber: &modelNumber)){
             serialNumber = getDeviceSerialNumber(data: advertisementData)
         }
-        addKurvxToDiscoveredList(didDiscover: peripheral, serial: serialNumber, model: modelNumber, rssi: RSSI)
+        kurvxDiscoveringDelegate.onKurvxDiscovered(didDiscover: peripheral, withSerial: serialNumber.substring(to: 8), withModel: modelNumber, withRSSI: RSSI.int64Value)
+        
         print(peripheral)
     }
     
-    private func addKurvxToDiscoveredList(didDiscover peripheral: CBPeripheral, serial serialNumber: String, model modelNumber: String, rssi RSSI: NSNumber){
-        
-    }
+    
     
     //Check if the device is a supported kurvx device
     private func onPeripheralChecking(didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], modelNumber: inout String) -> Bool{
@@ -118,4 +118,6 @@ public class KurvxBLEPeripheralManager: NSObject, CBCentralManagerDelegate{
         }
         return NSLocalizedString("n/a", comment: "n/a")
     }
+    
+    
 }
