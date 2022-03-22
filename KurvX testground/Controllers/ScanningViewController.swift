@@ -40,7 +40,7 @@ class ScanningViewController: UIViewController {
 
 extension ScanningViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped me!")
+        print("You tapped the table!")
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -52,7 +52,7 @@ extension ScanningViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KurvxItemCell", for: indexPath)
-        cell.textLabel?.text = "Hello World \(indexPath.row)"
+        cell.textLabel?.text = "Test \(indexPath.row)"
         cell.detailTextLabel?.text = names[indexPath.row]
         return cell
         

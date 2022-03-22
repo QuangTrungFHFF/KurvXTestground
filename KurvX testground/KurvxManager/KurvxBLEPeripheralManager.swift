@@ -10,10 +10,10 @@ import CoreBluetooth
 
 public class KurvxBLEPeripheralManager: NSObject, CBCentralManagerDelegate{
     
-    
     public static let shared = KurvxBLEPeripheralManager()
-    
     public private(set) var centralManager : CBCentralManager?
+    
+    private var discoveredKurvxs = [(peripheral: CBPeripheral, serialNumber: String, modelNumber: String, withRSSI: Int64)]()
     
     private override init(){
         super.init()
@@ -24,16 +24,7 @@ public class KurvxBLEPeripheralManager: NSObject, CBCentralManagerDelegate{
         
     }
     
-    public func discoverDevices() {
-        
-        let kurvxBaseService = [getBaseServiceUUID()]
-        print("discoverDevices : Base UUID \(kurvxBaseService.description)")
-        centralManager!.scanForPeripherals(withServices: kurvxBaseService, options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: false)])
-    }
-    
-    public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print(peripheral)
-    }
+
     
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
@@ -53,5 +44,78 @@ public class KurvxBLEPeripheralManager: NSObject, CBCentralManagerDelegate{
             print("central.state is on newly added state")
         }
 
+    }
+    
+    //MARK: KurvX scanning
+    public func discoverDevices() {
+        
+        let kurvxBaseService = [getBaseServiceUUID()]
+        print("discoverDevices : Base UUID \(kurvxBaseService.description)")
+        centralManager!.scanForPeripherals(withServices: kurvxBaseService, options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: false)])
+    }
+    
+        public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        var modelNumber : String = NSLocalizedString("n/a", comment: "n/a")
+        var serialNumber : String = NSLocalizedString("n/a", comment: "n/a")
+        if(onPeripheralChecking(didDiscover: peripheral, advertisementData: advertisementData, modelNumber: &modelNumber)){
+            serialNumber = getDeviceSerialNumber(data: advertisementData)
+        }
+        addKurvxToDiscoveredList(didDiscover: peripheral, serial: serialNumber, model: modelNumber, rssi: RSSI)
+        print(peripheral)
+    }
+    
+    private func addKurvxToDiscoveredList(didDiscover peripheral: CBPeripheral, serial serialNumber: String, model modelNumber: String, rssi RSSI: NSNumber){
+        
+    }
+    
+    //Check if the device is a supported kurvx device
+    private func onPeripheralChecking(didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], modelNumber: inout String) -> Bool{
+        if (checkIfAlreadyConnectedBefore()) {
+              return false
+        }else if let serviceUUIDsData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID: Data] {
+            if let data = serviceUUIDsData[BLEUUIDs.getBLEDeviceInformationServiceUUID()]{
+                if let modelStr = String(data: data, encoding: .utf8) {
+                    for model in kurvx_device_model_supported{
+                        if model == modelStr {
+                            modelNumber = modelStr
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        if(peripheral.name == KurvxBLEUtils.KURVX_DFU_NAME || peripheral.name == KurvxBLEUtils.KURVX_DFU_NAME_SHORT){
+            return true
+        }else if advertisementData[CBAdvertisementDataServiceDataKey] == nil {
+            return true
+        }
+        return false
+    }
+    
+    
+    
+    //MARK: Helper function
+    private func checkIfAlreadyConnectedBefore() -> Bool{
+        // Todo: check if kurvX already connected with the app before
+        return false
+    }
+    
+    private func getDeviceSerialNumber(data advertisementData: [String : Any])-> String{
+        if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
+            var data : Data
+            if manufacturerData.starts(with: [0xFF, 0xFF]) {
+                data = manufacturerData.dropFirst(2)
+            }else{
+                data = manufacturerData
+            }
+            if let serialNumberStr = String(data: data, encoding: .utf8) {
+                var serialNumber : String = serialNumberStr
+                if !serialNumberStr.starts(with: "KX") {
+                    serialNumber = ("KX" + serialNumberStr)
+                }
+                return serialNumber
+            }
+        }
+        return NSLocalizedString("n/a", comment: "n/a")
     }
 }

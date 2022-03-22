@@ -22,3 +22,4 @@ fileprivate func getUUIDString(withBaseFormat aBaseFormat: String, andIdentifier
     return CBUUID(string: uuidString)
 }
 
+let kurvx_device_model_supported = ["kurvX_1"]

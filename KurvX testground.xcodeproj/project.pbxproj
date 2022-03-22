@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C304D67E27E9D0D000625734 /* KurvxBLEUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C304D67D27E9D0D000625734 /* KurvxBLEUtils.swift */; };
+		C304D68027E9D17300625734 /* BLEUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C304D67F27E9D17300625734 /* BLEUUIDs.swift */; };
 		C3438BB527E0986600024910 /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3438BB427E0986600024910 /* ScanningViewController.swift */; };
 		C3438BB827E0F61400024910 /* KurvxBLEPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3438BB727E0F61400024910 /* KurvxBLEPeripheralManager.swift */; };
 		C3438BBB27E0FD3100024910 /* KurvxUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3438BBA27E0FD3100024910 /* KurvxUUIDs.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C304D67D27E9D0D000625734 /* KurvxBLEUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurvxBLEUtils.swift; sourceTree = "<group>"; };
+		C304D67F27E9D17300625734 /* BLEUUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEUUIDs.swift; sourceTree = "<group>"; };
 		C3438BB427E0986600024910 /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
 		C3438BB727E0F61400024910 /* KurvxBLEPeripheralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurvxBLEPeripheralManager.swift; sourceTree = "<group>"; };
 		C3438BBA27E0FD3100024910 /* KurvxUUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurvxUUIDs.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			children = (
 				C3438BBA27E0FD3100024910 /* KurvxUUIDs.swift */,
 				C394DF5C27E3797C00E60DCE /* DatabaseHelper.swift */,
+				C304D67F27E9D17300625734 /* BLEUUIDs.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 		C394DF5E27E3852F00E60DCE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C304D67D27E9D0D000625734 /* KurvxBLEUtils.swift */,
 				C394DF5F27E3854000E60DCE /* StorageUtils.swift */,
 			);
 			path = Utils;
@@ -333,7 +339,9 @@
 				C394DF6027E3854000E60DCE /* StorageUtils.swift in Sources */,
 				C3438BB527E0986600024910 /* ScanningViewController.swift in Sources */,
 				C394DF5D27E3797C00E60DCE /* DatabaseHelper.swift in Sources */,
+				C304D68027E9D17300625734 /* BLEUUIDs.swift in Sources */,
 				C394DF6327E3978A00E60DCE /* KurvxDatabaseTable.swift in Sources */,
+				C304D67E27E9D0D000625734 /* KurvxBLEUtils.swift in Sources */,
 				C394DF5B27E3771900E60DCE /* KurvxDatabaseManager.swift in Sources */,
 				C3438BB827E0F61400024910 /* KurvxBLEPeripheralManager.swift in Sources */,
 				C3438BBB27E0FD3100024910 /* KurvxUUIDs.swift in Sources */,
